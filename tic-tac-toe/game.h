@@ -4,13 +4,14 @@
 #include<time.h>
 #define ROW 3
 #define COL 3
-//W   Íæ¼ÒÓ®
-//D   µçÄÔÓ®
-//C   ¼ÌÐø
-//Q   Æ½¾Ö
+//W   çŽ©å®¶èµ¢
+//D   ç”µè„‘èµ¢
+//C   ç»§ç»­
+//Q   å¹³å±€
 void InitBoard(char board[ROW][COL], int row, int col);
 void DisplayBoard(char board[ROW][COL], int row, int col);
 void PlayerMove(char board[ROW][COL], int row, int col);
-void ComputerMove(char board[ROW][COL], int row, int col);
+void ComputerMove1(char board[ROW][COL], int row, int col);
+void ComputerMove2(char board[ROW][COL], int row, int col);
 char IsWin(char board[ROW][COL], int row, int col);
 int IsFull(char board[ROW][COL], int row, int col);
