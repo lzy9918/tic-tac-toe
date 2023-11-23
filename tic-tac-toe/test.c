@@ -13,26 +13,51 @@ void game()
 {
 	char board[ROW][COL];
 	char ret = 0;
-	InitBoard(board, ROW, COL);
-	while (1)
+	int sign;
+	do
 	{
-		PlayerMove(board, ROW, COL);
-		DisplayBoard(board, ROW, COL);
-		ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
-			break;
-		ComputerMove(board, ROW, COL);
-		DisplayBoard(board, ROW, COL);
-		ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
-			break;
+		printf("Please select the difficulty level:> 1&2\n");
+		scanf("%d", &sign);
+	} while (sign != 1 && sign != 2);
+	InitBoard(board, ROW, COL);
+	if (sign == 1)
+	{
+		while (1)
+		{
+			PlayerMove(board, ROW, COL);
+			DisplayBoard(board, ROW, COL);
+			ret = IsWin(board, ROW, COL);
+			if (ret != 'C')
+				break;
+			ComputerMove1(board, ROW, COL);
+			DisplayBoard(board, ROW, COL);
+			ret = IsWin(board, ROW, COL);
+			if (ret != 'C')
+				break;
+		}
+	}
+	else
+	{
+		while (1)
+		{
+			PlayerMove(board, ROW, COL);
+			DisplayBoard(board, ROW, COL);
+			ret = IsWin(board, ROW, COL);
+			if (ret != 'C')
+				break;
+			ComputerMove2(board, ROW, COL);
+			DisplayBoard(board, ROW, COL);
+			ret = IsWin(board, ROW, COL);
+			if (ret != 'C')
+				break;
+		}
 	}
 	if (ret == 'W')
-		printf("Íæ¼ÒÓ®!\n");
+		printf("çŽ©å®¶èµ¢!\n");
 	else if (ret == 'D')
-		printf("µçÄÔÓ®!\n");
+		printf("ç”µè„‘èµ¢!\n");
 	else if (ret == 'Q')
-		printf("Æ½¾Ö!\n");
+		printf("å¹³å±€!\n");
 }
 void test()
 {
