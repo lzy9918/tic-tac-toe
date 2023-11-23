@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1
 #pragma warning(disable:6031)
 #include"game.h"
 void InitBoard(char board[ROW][COL], int row, int col)
@@ -83,7 +83,7 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 		}
 	}
 }
-void ComputerMove(char board[ROW][COL], int row, int col)
+void ComputerMove1(char board[ROW][COL], int row, int col)
 {
 	int x = 0, y = 0;
 	printf("ComputerMove:>\n");
@@ -91,6 +91,399 @@ void ComputerMove(char board[ROW][COL], int row, int col)
 	{
 		x = rand() % ROW;
 		y = rand() % COL;
+		if (board[x][y] == ' ')
+		{
+			board[x][y] = '#';
+			break;
+		}
+	}
+}
+void ComputerMove2(char board[ROW][COL], int row, int col)
+{
+	int x = 0, y = 0;
+	printf("ComputerMove:>\n");
+	while (1)
+	{
+		if (board[1][1] == ' ')
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][2] == ' ') && (board[0][0] == '#' && board[0][1] == '#'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[0][1] == ' ') && (board[0][0] == '#' && board[0][2] == '#'))
+		{
+			x = 0;
+			y = 1;
+		}
+		else if ((board[0][0] == ' ') && (board[0][1] == '#' && board[0][2] == '#'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][2] == ' ') && (board[1][0] == '#' && board[1][1] == '#'))
+		{
+			x = 1;
+			y = 2;
+		}
+		else if ((board[1][1] == ' ') && (board[1][0] == '#' && board[1][2] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][0] == ' ') && (board[1][1] == '#' && board[1][2] == '#'))
+		{
+			x = 1;
+			y = 0;
+		}
+		else if ((board[2][2] == ' ') && (board[2][0] == '#' && board[2][1] == '#'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[2][1] == ' ') && (board[2][0] == '#' && board[2][2] == '#'))
+		{
+			x = 2;
+			y = 1;
+		}
+		else if ((board[2][0] == ' ') && (board[2][1] == '#' && board[2][2] == '#'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[2][0] == ' ') && (board[0][0] == '#' && board[1][0] == '#'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][0] == ' ') && (board[0][0] == '#' && board[2][0] == '#'))
+		{
+			x = 1;
+			y = 0;
+		}
+		else if ((board[0][0] == ' ') && (board[1][0] == '#' && board[2][0] == '#'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[2][1] == ' ') && (board[0][1] == '#' && board[1][1] == '#'))
+		{
+			x = 2;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][1] == '#' && board[2][1] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][1] == ' ') && (board[1][1] == '#' && board[2][1] == '#'))
+		{
+			x = 0;
+			y = 1;
+		}
+		else if ((board[2][2] == ' ') && (board[0][2] == '#' && board[1][2] == '#'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][2] == ' ') && (board[0][2] == '#' && board[2][2] == '#'))
+		{
+			x = 1;
+			y = 2;
+		}
+		else if ((board[0][2] == ' ') && (board[1][2] == '#' && board[2][2] == '#'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[2][2] == ' ') && (board[0][0] == '#' && board[1][1] == '#'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == '#' && board[2][2] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][0] == ' ') && (board[1][1] == '#' && board[2][2] == '#'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[2][0] == ' ') && (board[0][2] == '#' && board[1][1] == '#'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][1] == ' ') && (board[0][2] == '#' && board[2][0] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][2] == ' ') && (board[1][1] == '#' && board[2][0] == '#'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[0][2] == ' ') && (board[0][0] == '*' && board[0][1] == '*'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[0][1] == ' ') && (board[0][0] == '*' && board[0][2] == '*'))
+		{
+			x = 0;
+			y = 1;
+		}
+		else if ((board[0][0] == ' ') && (board[0][1] == '*' && board[0][2] == '*'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][2] == ' ') && (board[1][0] == '*' && board[1][1] == '*'))
+		{
+			x = 1;
+			y = 2;
+		}
+		else if ((board[1][1] == ' ') && (board[1][0] == '*' && board[1][2] == '*'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][0] == ' ') && (board[1][1] == '*' && board[1][2] == '*'))
+		{
+			x = 1;
+			y = 0;
+		}
+		else if ((board[2][2] == ' ') && (board[2][0] == '*' && board[2][1] == '*'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[2][1] == ' ') && (board[2][0] == '*' && board[2][2] == '*'))
+		{
+			x = 2;
+			y = 1;
+		}
+		else if ((board[2][0] == ' ') && (board[2][1] == '*' && board[2][2] == '*'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[2][0] == ' ') && (board[0][0] == '*' && board[1][0] == '*'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][0] == ' ') && (board[0][0] == '*' && board[2][0] == '*'))
+		{
+			x = 1;
+			y = 0;
+		}
+		else if ((board[0][0] == ' ') && (board[1][0] == '*' && board[2][0] == '*'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[2][1] == ' ') && (board[0][1] == '*' && board[1][1] == '*'))
+		{
+			x = 2;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][1] == '*' && board[2][1] == '*'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][1] == ' ') && (board[1][1] == '*' && board[2][1] == '*'))
+		{
+			x = 0;
+			y = 1;
+		}
+		else if ((board[2][2] == ' ') && (board[0][2] == '*' && board[1][2] == '*'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][2] == ' ') && (board[0][2] == '*' && board[2][2] == '*'))
+		{
+			x = 1;
+			y = 2;
+		}
+		else if ((board[0][2] == ' ') && (board[1][2] == '*' && board[2][2] == '*'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[2][2] == ' ') && (board[0][0] == '*' && board[1][1] == '*'))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == '*' && board[2][2] == '*'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][0] == ' ') && (board[1][1] == '*' && board[2][2] == '*'))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[2][0] == ' ') && (board[0][2] == '*' && board[1][1] == '*'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][1] == ' ') && (board[0][2] == '*' && board[2][0] == '*'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[0][2] == ' ') && (board[1][1] == '*' && board[2][0] == '*'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if (board[1][1] == ' ')
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == '*') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == '#'))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == '*') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == '#') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == '#') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == '*'))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == '#') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == '*') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == '#') && (board[0][0] == '*') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == '*'))
+		{
+			x = 1;
+			y = 0;
+		}
+		else if ((board[1][1] == '#') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == '*') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == '*') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 1;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == '#') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '#') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == '#') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == '*') && (board[1][0] == '*') && (board[1][2] == '#') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 0;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == '#') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == '#') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == '#') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == '#') && (board[1][0] == '*') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '*') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == '#'))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '*') && (board[1][2] == '*') && (board[2][0] == '#') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == ' ') && (board[0][0] == '#') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '*') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 1;
+			y = 1;
+		}
+		else if ((board[1][1] == '#') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[1][1] == '#') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == '*') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == '*') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '#') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 0;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '#') && (board[1][2] == '*') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 0;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == '#') && (board[0][2] == ' ') && (board[1][0] == ' ') && (board[1][2] == ' ') && (board[2][0] == ' ') && (board[2][1] == '*') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 2;
+		}
+		else if ((board[1][1] == '*') && (board[0][0] == ' ') && (board[0][1] == ' ') && (board[0][2] == ' ') && (board[1][0] == '*') && (board[1][2] == '#') && (board[2][0] == ' ') && (board[2][1] == ' ') && (board[2][2] == ' '))
+		{
+			x = 2;
+			y = 0;
+		}
+		else
+		{
+			x = rand() % ROW;
+			y = rand() % COL;
+		}
 		if (board[x][y] == ' ')
 		{
 			board[x][y] = '#';
